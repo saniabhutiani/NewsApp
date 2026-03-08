@@ -1,0 +1,84 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+}
+.news-card a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #1e3a8a;   /* Dark Blue */
+  color: #ffffff;              /* White text */
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.news-card a:hover {
+  background-color: #162d6b;   /* Slightly darker blue */
+  transform: translateY(-2px);
+}
+
+/* Hover effect */
+.news-card a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+.news-card a:hover {
+  box-shadow: 0 0 12px rgba(118,75,162,0.7);
+}
+.read-more {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #0f0118;   /* Purple */
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #520a86;
+  transform: translateY(-2px);
+}

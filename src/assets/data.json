@@ -1,0 +1,61 @@
+{
+    "jobs": [
+
+    {
+      "id": 1,
+      "title": "Full Stack Developer",
+      "company": "TechWave Solutions",
+      "location": "Bangalore, India",
+      "type": "Full-time",
+      "salary": "₹8,00,000 - ₹12,00,000 per year",
+      "experience": "2-4 years",
+      "skills": ["JavaScript", "React", "Node.js", "MongoDB"],
+      "posted_on": "2025-08-25"
+    },
+    {
+      "id": 2,
+      "title": "Data Analyst",
+      "company": "Insight Analytics",
+      "location": "Mumbai, India",
+      "type": "Full-time",
+      "salary": "₹6,00,000 - ₹9,00,000 per year",
+      "experience": "1-3 years",
+      "skills": ["SQL", "Python", "Excel", "Tableau"],
+      "posted_on": "2025-08-28"
+    },
+    {
+      "id": 3,
+      "title": "Frontend Developer",
+      "company": "Creative Minds",
+      "location": "Remote",
+      "type": "Contract",
+      "salary": "₹4,00,000 - ₹6,00,000 per year",
+      "experience": "1-2 years",
+      "skills": ["HTML", "CSS", "JavaScript", "React"],
+      "posted_on": "2025-09-01"
+    },
+    {
+      "id": 4,
+      "title": "UI/UX Designer",
+      "company": "DesignHub",
+      "location": "Chandigarh, India",
+      "type": "Internship",
+      "salary": "₹15,000 per month",
+      "experience": "Fresher",
+      "skills": ["Figma", "Adobe XD", "Wireframing", "Prototyping"],
+      "posted_on": "2025-08-30"
+    },
+    {
+      "id": 5,
+      "title": "Project Manager",
+      "company": "Solitaire Infosys Pvt Ltd",
+      "location": "Mohali, India",
+      "type": "Full-time",
+      "salary": "₹10,00,000 - ₹15,00,000 per year",
+      "experience": "5-8 years",
+      "skills": ["Agile", "Scrum", "Leadership", "Communication"],
+      "posted_on": "2025-08-27"
+    }
+  ]
+  
+}
