@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NewsList from "../components/NewsList.jsx";
-import SearchBar from "../components/SearchBar.jsx";
+import SearchBar from "../components/SearcBar.jsx";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
