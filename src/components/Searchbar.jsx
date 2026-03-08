@@ -5,8 +5,11 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query.trim() !== "") {
-      onSearch(query);
+
+    const trimmedQuery = query.trim();
+    if (trimmedQuery) {
+      onSearch(trimmedQuery);
+      setQuery(""); // optional: input clear after search
     }
   };
 
@@ -19,6 +22,7 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search for news..."
         style={styles.input}
       />
+
       <button type="submit" style={styles.button}>
         Search
       </button>
@@ -44,7 +48,7 @@ const styles = {
     marginLeft: "10px",
     border: "none",
     backgroundColor: "#222",
-    color: "white",
+    color: "#fff",
     borderRadius: "5px",
     cursor: "pointer",
   },
