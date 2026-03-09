@@ -4,23 +4,15 @@ import NewsItem from "./NewsItem";
 const NewsCard = ({ articles }) => {
   return (
     <div style={styles.container}>
-      {articles.map((item, index) => {
-
-        const imageUrl =
-          item.image && !item.image.includes("placeholder")
-            ? item.image
-            : `https://source.unsplash.com/400x250/?news,${index}`;
-
-        return (
-          <NewsItem
-            key={index}
-            title={item.title}
-            description={item.description}
-            url={item.url}
-            imageUrl={imageUrl}
-          />
-        );
-      })}
+      {articles.map((item, index) => (
+        <NewsItem
+          key={index}
+          title={item.title}
+          description={item.description}
+          url={item.url}
+          imageUrl={item.image}   
+        />
+      ))}
     </div>
   );
 };
