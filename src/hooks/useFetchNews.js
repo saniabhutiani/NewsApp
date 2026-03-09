@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_KEY = "b93bbc123f994b5dac26b00f2b34046b"; // keep or move to env
+const API_KEY = "a686f37b835b287f3f50a83409023992";
 
 const useFetchNews = (category) => {
   const [articles, setArticles] = useState([]);
@@ -15,32 +15,44 @@ const useFetchNews = (category) => {
 
         const selectedCategory = category || "general";
 
-        // If the category looks like a search term (not predefined), use everything endpoint
-        // We'll treat "search" terms by hitting /everything; for categories use top-headlines
-        // Simple heuristic: if category is one of known categories, use top-headlines else everything
-        const knownCategories = ["business", "sports", "technology", "general", "entertainment", "health", "science"];
+        const knownCategories = [
+          "business",
+          "sports",
+          "technology",
+          "general",
+          "entertainment",
+          "health",
+          "science",
+        ];
+
         let url = "";
 
         if (knownCategories.includes(selectedCategory)) {
-          url = `https://newsapi.org/v2/top-headlines?country=us&category=${selectedCategory}&apiKey=${API_KEY}`;
+          url = `https://gnews.io/api/v4/top-headlines?category=${selectedCategory}&lang=en&max=20&apikey=${API_KEY}`;
         } else {
-          // treat as search query
           const q = encodeURIComponent(selectedCategory);
-          url = `https://newsapi.org/v2/everything?q=${q}&pageSize=30&apiKey=${API_KEY}`;
+          url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=20&apikey=${API_KEY}`;
         }
 
         const response = await fetch(url);
         const data = await response.json();
+           if (data.articles && data.articles.length > 0) {
+           const uniqueArticles = data.articles.filter(
+           (article, index, self) =>
+            index ===self.findIndex(
+             (a) => a.title === article.title || a.url === article.url
+    )
+);
 
-        if (data.status === "ok" && data.articles && data.articles.length > 0) {
-          setArticles(data.articles);
+setArticles(uniqueArticles);
         } else {
-          setError("No news articles found for this category/search.");
           setArticles([]);
+          setError("No news articles found.");
         }
+
       } catch (err) {
         console.error(err);
-        setError("Error fetching news data.");
+        setError("Error fetching news.");
       } finally {
         setLoading(false);
       }
