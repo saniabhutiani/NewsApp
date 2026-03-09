@@ -4,15 +4,11 @@ const API_KEY = "a686f37b835b287f3f50a83409023992";
 
 const useFetchNews = (category) => {
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        setLoading(true);
-        setError(null);
-
         const selectedCategory = category || "general";
 
         const knownCategories = [
@@ -35,33 +31,24 @@ const useFetchNews = (category) => {
         }
 
         const response = await fetch(url);
-        const data = await response.json();
-           if (data.articles && data.articles.length > 0) {
-           const uniqueArticles = data.articles.filter(
-           (article, index, self) =>
-            index ===self.findIndex(
-             (a) => a.title === article.title || a.url === article.url
-    )
-);
 
-setArticles(uniqueArticles);
-        } else {
-          setArticles([]);
-          setError("No news articles found.");
+        if (!response.ok) {
+          throw new Error("API request failed");
         }
 
+        const data = await response.json();
+
+        setArticles(data.articles || []);
       } catch (err) {
         console.error(err);
         setError("Error fetching news.");
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchNews();
   }, [category]);
 
-  return { articles, loading, error };
+  return { articles, error };
 };
 
 export default useFetchNews;
