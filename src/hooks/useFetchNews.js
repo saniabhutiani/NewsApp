@@ -24,10 +24,10 @@ const useFetchNews = (category) => {
         let url = "";
 
         if (knownCategories.includes(selectedCategory)) {
-          url = `https://gnews.io/api/v4/top-headlines?category=${selectedCategory}&lang=en&max=20&apikey=${API_KEY}`;
+          url = url = `https://api.allorigins.win/raw?url=https://gnews.io/api/v4/top-headlines?category=${selectedCategory}&lang=en&max=20&apikey=${API_KEY}`;
         } else {
           const q = encodeURIComponent(selectedCategory);
-          url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=20&apikey=${API_KEY}`;
+          url = url = `https://api.allorigins.win/raw?url=https://gnews.io/api/v4/top-headlines?category=${selectedCategory}&lang=en&max=20&apikey=${API_KEY}`;
         }
 
         const response = await fetch(url);
