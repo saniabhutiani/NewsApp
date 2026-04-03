@@ -49,4 +49,4 @@ const useFetchNews = (category) => {
   return { articles, loading, error };
 };
 
-export default useFetchNews;
+export default useFetchNews; 
